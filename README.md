@@ -1,6 +1,6 @@
 # Airwallet Laundry for Home Assistant
 
-<img src="custom_components/airwallet/brand/icon@2x.png" width="128" alt="Airwallet Laundry icon">
+<img src="https://raw.githubusercontent.com/martijnvanonz/airwallet-ha/main/custom_components/airwallet/brand/icon@2x.png" width="128" alt="Airwallet Laundry icon">
 
 Unofficial Home Assistant integration for [Airwallet](https://www.airwallet.net/) shared laundry rooms.
 Get a notification when your wash is done, or when a washing machine is free.
