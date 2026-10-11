@@ -1,0 +1,51 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Airwallet",
+        "description": "Log in with the phone number and the 4-digit PIN that you use in the Airwallet app. Leave the laundry room ID empty to use your favorite laundry room.",
+        "data": {
+          "phone": "Phone number (for example +31612345678)",
+          "pin": "PIN",
+          "location_id": "Laundry room ID (optional)"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Airwallet login expired",
+        "description": "Enter your Airwallet PIN again.",
+        "data": {
+          "pin": "PIN"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Wrong phone number or PIN.",
+      "cannot_connect": "Cannot connect to Airwallet.",
+      "no_location": "No favorite laundry room on this account. Enter the laundry room ID."
+    },
+    "abort": {
+      "already_configured": "This laundry room is already configured.",
+      "reauth_successful": "Login updated."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "status": {
+        "name": "Status",
+        "state": {
+          "available": "Available",
+          "in_use": "In use",
+          "mine": "In use (mine)",
+          "maintenance": "Maintenance"
+        }
+      },
+      "busy_until": { "name": "Busy until" },
+      "free_washers": { "name": "Free washers" },
+      "free_dryers": { "name": "Free dryers" }
+    },
+    "binary_sensor": {
+      "running": { "name": "Running" },
+      "my_laundry": { "name": "My laundry running" }
+    }
+  }
+}

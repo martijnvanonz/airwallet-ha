@@ -1,0 +1,51 @@
+# Example automations for the Airwallet integration.
+# Replace notify.mobile_app_iphone with your own Companion app notify service
+# (Developer tools -> Actions -> search "notify.mobile_app").
+#
+# For the "machine free" alert, first create a toggle helper:
+#   Settings -> Devices & services -> Helpers -> Create helper -> Toggle
+#   Name: "Wait for washer"  (entity: input_boolean.wait_for_washer)
+
+- id: airwallet_my_wash_done
+  alias: "Laundry: my wash is done"
+  triggers:
+    - trigger: event
+      event_type: airwallet_machine_finished
+      event_data:
+        mine: true
+  actions:
+    - action: notify.mobile_app_iphone
+      data:
+        title: "Laundry done"
+        message: "{{ trigger.event.data.name }} is done. Time to walk down!"
+        data:
+          push:
+            interruption-level: time-sensitive
+
+- id: airwallet_washer_free
+  alias: "Laundry: a washer is free"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.example_laundry_free_washers
+      above: 0
+    - trigger: state
+      entity_id: input_boolean.wait_for_washer
+      to: "on"
+  conditions:
+    - condition: state
+      entity_id: input_boolean.wait_for_washer
+      state: "on"
+    - condition: numeric_state
+      entity_id: sensor.example_laundry_free_washers
+      above: 0
+  actions:
+    - action: notify.mobile_app_iphone
+      data:
+        title: "Washer free"
+        message: "{{ states('sensor.example_laundry_free_washers') }} washer(s) free now."
+        data:
+          push:
+            interruption-level: time-sensitive
+    - action: input_boolean.turn_off
+      target:
+        entity_id: input_boolean.wait_for_washer
