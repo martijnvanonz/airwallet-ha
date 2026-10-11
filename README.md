@@ -12,6 +12,8 @@ Get a notification when your wash is done, or when a washing machine is free.
 > laundry room and your own orders. It never starts machines or pays for anything.
 > It can stop working at any time when Airwallet changes their app. Use it at your own risk.
 
+![Laundry room in Home Assistant](docs/laundry-room.png)
+
 ## What you get
 
 For each machine:
