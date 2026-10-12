@@ -46,6 +46,8 @@ The integration polls every 60 seconds, so a "done" notification comes within ab
 
 ## Install
 
+[![Open your Home Assistant instance and open this repository inside HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=martijnvanonz&repository=airwallet-ha&category=integration)
+
 1. **With HACS:** HACS → ⋮ → **Custom repositories** → add `https://github.com/martijnvanonz/airwallet-ha`
    with type **Integration**, then download **Airwallet Laundry**.
    **Without HACS:** copy `custom_components/airwallet` to `<config>/custom_components/airwallet`.
